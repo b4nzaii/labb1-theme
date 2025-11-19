@@ -1,0 +1,11 @@
+/*
+Theme Name: Labb 1 Tema
+Theme URI: http://localhost/labb1
+Author: labb-1
+Description: WordPress tema för Laboration 1.
+Version: 1.0
+*/
+
+@import url("css/bootstrap.css");
+@import url("css/font-awesome.css");
+@import url("css/style.css");
