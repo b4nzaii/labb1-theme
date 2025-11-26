@@ -1,5 +1,5 @@
 <?php
-get_header();
+get_header()
 ?>
 
 <h1>Funkar temat testing</h1>

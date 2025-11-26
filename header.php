@@ -3,13 +3,52 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?php wp_head(); ?>
+    <?php wp_head(); ?> <!---->
 </head>
 <body <?php body_class(); ?>>
 
-<div id="wrap">
-
-<header id="header">
+<div id="wrap>
+ <header id="header">
     <div class="container">
-        <h1><a href="<?php echo home_url('/'); ?>"><?php bloginfo('name'); ?></a></h1>
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <h1 class="logo">
+                    <a href="<?php echo home_url('/'); ?>">
+                        <?php bloginfo('name'); ?>
+                    </a>
+                </h1>
+            </div>
+            <!-- Sökformulär -->
+            <div class="col-xs-12 col-md-6">
+                <form role="search" method="get" action="<?php echo home_url('/'); ?>">
+                    <label for="s">Sök:</label>
+                    <input type="text" name="s" id="s" placeholder="Sök...">
+                    <input type="submit" value="Sök">
+                </form>
+            </div>
+
+        </div>
+    </div>
 </header>
+
+<!-- Navigation -->
+<nav id="nav">
+    <div class="container">
+        <?php
+        wp_nav_menu([
+            'theme_location' => 'primary',
+            'container'      => false,
+            'menu_class'     => 'menu',
+        ]);
+        ?>
+    </div>
+</nav>
+
+<!-- Mobilsök (visas endast i mobil, CSS styr) -->
+<div class="mobile-search">
+    <form role="search" method="get" action="<?php echo home_url('/'); ?>">
+        <label for="mobilesearch">Sök:</label>
+        <input type="text" name="s" id="mobilesearch" placeholder="Sök...">
+        <input type="submit" value="Sök">
+    </form>
+</div>
