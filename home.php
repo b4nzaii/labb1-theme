@@ -21,9 +21,10 @@ get_header();
                         </h2>
 
                         <!-- Meta-data -->
-                        <ul class="meta">
-                            <li><i class="fa fa-user"></i> <?php the_author(); ?></li>
-                            <li><i class="fa fa-clock-o"></i> <?php the_time('Y-m-d'); ?></li>
+                        <ul>
+                           <li><i class="fa fa-user"></i><?php the_author_posts_link(); ?></li>
+                           <li><i class="fa fa-clock"></i><?php echo get_the_date(); ?></li>
+                           <li><i class="fa fa-folder-open"></i><?php the_category(", "); ?></li>
                         </ul>
 
                         <!-- Utvald bild -->
@@ -51,7 +52,6 @@ get_header();
 
             </div>
 
-            <!-- Sidebar (kommer senare) -->
             <div class="col-xs-12 col-md-4">
                 <?php get_sidebar(); ?>
             </div>

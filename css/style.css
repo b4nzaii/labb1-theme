@@ -1,21 +1,35 @@
-/* General styles
------------------------------------------------------------------- */
+/* =========================================================
+   GENERAL STYLES
+   ========================================================= */
 
 * {
   outline: none;
+  box-sizing: border-box;
 }
 
 body {
-  background-color: #eee;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
+    sans-serif;
+  line-height: 1.6;
+  background-color: #0f1123;
+  color: #e5e7eb;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 a {
-  color: crimson;
+  color: #2dd4bf;
+  text-decoration: none;
 }
 
 a:hover,
-a:active {
-  color: darkred;
+a:focus {
+  color: #5eead4;
+  text-decoration: underline;
 }
 
 h1,
@@ -23,14 +37,12 @@ h2,
 h3,
 h4 {
   margin-top: 0;
+  font-weight: 600;
+  color: #ffffff;
 }
 
 h1 {
   margin-bottom: 30px;
-}
-
-img {
-  max-width: 100%;
 }
 
 label {
@@ -38,35 +50,59 @@ label {
 }
 
 input[type="text"],
-input[type="email"] {
+input[type="email"],
+textarea {
   display: block;
   min-width: 200px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  border: 1px solid #9ca3af;
+  font: inherit;
 }
 
 input[type="submit"] {
-  display: block;
+  display: inline-block;
+  padding: 8px 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+  background-color: #2563eb;
+  color: #ffffff;
 }
 
-textarea {
-  min-width: 200px;
+input[type="submit"]:hover {
+  background-color: #1d4ed8;
 }
 
-/* Header styles
------------------------------------------------------------------- */
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 #header {
-  background-color: crimson;
+  background-color: #111827;
+  /* mörk header */
   height: 70px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 #header .logo {
-  color: white;
-  font-size: 24px;
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 700;
   line-height: 70px;
 }
 
+#header .logo a {
+  color: #ffffff;
+}
+
+#header .logo a:hover {
+  text-decoration: none;
+  opacity: 0.9;
+}
+
 #header .mobile-menu-wrap {
-  color: white;
+  color: #ffffff;
   font-size: 20px;
   line-height: 40px;
 }
@@ -75,6 +111,7 @@ textarea {
   min-width: 25px;
 }
 
+/* Sökformulär i headern */
 #header form {
   float: right;
   padding: 20px 0;
@@ -92,16 +129,18 @@ textarea {
   padding: 0 10px;
 }
 
-#header form input[type="text"] {}
+#header form input[type="text"] {
+  background-color: #f9fafb;
+  color: #111827;
+}
 
 #header form input[type="submit"] {
-  background-color: #333;
-  color: white;
+  background-color: #2563eb;
+  color: #ffffff;
   margin-left: 10px;
 }
 
 @media (max-width: 768px) {
-
   #header {
     height: 40px;
   }
@@ -110,11 +149,14 @@ textarea {
     font-size: 20px;
     line-height: 40px;
   }
-
 }
 
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
 #nav {
-  background-color: #333;
+  background-color: #020617;
   height: 40px;
 }
 
@@ -129,18 +171,26 @@ textarea {
   list-style: none;
   margin-right: 10px;
   padding: 0 15px;
-}
-
-#nav .menu>li.current-menu-item {
-  background-color: rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.05em;
 }
 
 #nav .menu>li>a {
-  color: white;
+  color: #e5e7eb;
+}
+
+#nav .menu>li>a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+#nav .menu>li.current-menu-item,
+#nav .menu>li.current_page_item {
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 @media (max-width: 768px) {
-
   #nav {
     display: none;
     height: auto;
@@ -154,11 +204,11 @@ textarea {
     float: none;
     width: 100%;
   }
-
 }
 
+/* Mobil-sökfält (om det används) */
 .mobile-search {
-  background-color: #333;
+  background-color: #020617;
   display: none;
   height: 50px;
   padding: 10px 15px;
@@ -186,70 +236,37 @@ textarea {
 }
 
 .mobile-search form input[type="submit"] {
-  background-color: crimson;
-  color: white;
+  background-color: #2563eb;
+  color: #ffffff;
   width: 20%;
 }
 
-/* Main styles
------------------------------------------------------------------- */
+/* =========================================================
+   MAIN LAYOUT
+   ========================================================= */
 
 main {
-  padding: 40px 0;
-}
-
-.hero {
-  position: relative;
-}
-
-.hero .text {
-  color: white;
-  font-size: 22px;
-  left: 0;
-  margin: 0 auto;
-  position: absolute;
-  right: 0;
-  text-align: center;
-  text-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
-  top: 50%;
-  transform: translateY(-50%);
-  width: 66.66666667%;
-}
-
-.hero .text h1 {
-  font-size: 50px;
-}
-
-@media (max-width: 768px) {
-
-  .hero .text {
-    color: inherit;
-    font-size: 16px;
-    margin-top: 30px;
-    position: static;
-    text-shadow: none;
-    top: auto;
-    transform: none;
-    width: 100%;
-  }
-
-  .hero .text h1 {
-    font-size: 30px;
-  }
-
+  padding: 40px 0 60px;
 }
 
 .welcome-text {
-  font-size: 22px;
-  margin-bottom: 20px;
-  margin-top: 50px;
+  font-size: 18px;
+  margin: 40px 0 30px;
 }
 
+/* =========================================================
+   STANDARD-ARTIKLAR / INLÄGG
+   ========================================================= */
+
 article {
-  background-color: white;
-  border: solid 1px #ccc;
-  border-top: solid 2px #333;
-  padding: 30px;
+  background-color: #ffffff;
+  color: #111827;
+  border-radius: 4px;
+  border: 1px solid #d1d5db;
+  border-top: 3px solid #111827;
+  padding: 25px 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
   position: relative;
 }
 
@@ -258,7 +275,7 @@ article+article {
 }
 
 article img {
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
   margin-bottom: 30px;
 }
 
@@ -266,10 +283,20 @@ article .title {
   margin-bottom: 10px;
 }
 
+article .title a {
+  color: #111827;
+}
+
+article .title a:hover {
+  color: #2563eb;
+}
+
 article .meta {
   margin: 0 0 10px;
   overflow: hidden;
   padding: 0;
+  font-size: 12px;
+  color: #6b7280;
 }
 
 article .meta>li {
@@ -295,42 +322,87 @@ article .categories>li {
 }
 
 article .categories>li>a {
-  background-color: crimson;
+  background-color: #2563eb;
   border-radius: 3px;
-  color: white;
+  color: #ffffff;
   display: block;
   font-size: 12px;
   padding: 5px 10px;
 }
 
-@media (max-width: 768px) {
+/* =========================================================
+   SIDMENY / SIDEBAR
+   ========================================================= */
 
-  article .meta {
-    margin: 25px 0;
-  }
-
-  article .meta>li {
-    float: none;
-    margin-right: 0;
-  }
-
-  article .meta>li>.fa {
-    min-width: 20px;
-    text-align: center;
-  }
-
+#sidebar {
+  background-color: #111827;
+  border: 1px solid #020617;
+  border-top: 2px solid #2563eb;
+  color: #e5e7eb;
 }
 
-.side-menu {
+#sidebar>ul {
+  border-bottom: 1px solid #020617;
+  margin: 0;
+  padding: 30px 30px 0;
+}
+
+#sidebar>ul>li {
+  list-style: none;
+  margin-bottom: 30px;
+}
+
+#sidebar>ul>li>ul {
   margin: 0;
   padding: 0;
 }
 
-.side-menu>li {
-  border-bottom: solid 1px #ccc;
+#sidebar>ul>li>ul>li {
   list-style: none;
-  padding: 10px 0;
 }
+
+#sidebar h2,
+#sidebar .widget-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+#sidebar label {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+#sidebar input {
+  border: none;
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  width: 100%;
+}
+
+#sidebar input[type="text"] {
+  color: #111827;
+  padding: 0 5px;
+}
+
+#sidebar input[type="submit"] {
+  background-color: #2563eb;
+  margin-top: 10px;
+}
+
+#sidebar a {
+  color: #2dd4bf;
+}
+
+#sidebar a:hover {
+  color: #5eead4;
+  text-decoration: none;
+}
+
+/*
+   SÖKFORMULÄR & PAGINATION STYLING
+  */
 
 .searchform-wrap {
   margin-bottom: 30px;
@@ -356,19 +428,18 @@ article .categories>li>a {
 }
 
 .searchform-wrap input[type="text"] {
-  border-color: #333;
+  border-color: #111827;
   margin-right: 10px;
 }
 
 .searchform-wrap input[type="submit"] {
-  background-color: crimson;
-  border-color: crimson;
-  color: white;
+  background-color: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
   min-width: 50px;
 }
 
 @media (max-width: 768px) {
-
   .searchform-wrap label {
     display: block;
     float: none;
@@ -382,7 +453,6 @@ article .categories>li>a {
   .searchform-wrap input[type="text"] {
     margin-bottom: 10px;
   }
-
 }
 
 .pagination {
@@ -396,91 +466,41 @@ article .categories>li>a {
 }
 
 .pagination>.page-numbers {
-  background-color: crimson;
-  color: white;
+  background-color: #2563eb;
+  color: #ffffff;
   display: inline-block;
   margin: 0 5px;
   padding: 5px 10px;
+  border-radius: 4px;
 }
 
 .pagination>.page-numbers.current {
-  background-color: white;
-  color: crimson;
+  background-color: #ffffff;
+  color: #2563eb;
 }
 
 @media (max-width: 768px) {
-
   .pagination {
     margin-bottom: 30px;
   }
-
 }
 
-#sidebar {
-  background-color: #333;
-  border: solid 1px black;
-  border-top: solid 2px crimson;
-  color: white;
-}
-
-#sidebar>ul {
-  border-bottom: solid 1px black;
-  margin: 0;
-  padding: 30px 30px 0;
-}
-
-#sidebar>ul>li {
-  list-style: none;
-  margin-bottom: 30px;
-}
-
-#sidebar>ul>li>ul {
-  margin: 0;
-  padding: 0;
-}
-
-#sidebar>ul>li>ul>li {
-  list-style: none;
-}
-
-#sidebar h2 {
-  font-size: 20px;
-}
-
-#sidebar label {
-  font-size: 20px;
-  font-weight: normal;
-}
-
-#sidebar input {
-  border: none;
-  display: block;
-  height: 30px;
-  line-height: 30px;
-  width: 100%;
-}
-
-#sidebar input[type="text"] {
-  color: black;
-  padding: 0 5px;
-}
-
-#sidebar input[type="submit"] {
-  background-color: crimson;
-  margin-top: 10px;
-}
-
-/* Footer styles
------------------------------------------------------------------- */
+/*
+   FOOTER
+ */
 
 #footer {
-  background-color: #333;
-  color: white;
+  background-color: #020617;
+  color: #9ca3af;
   padding: 30px 0;
 }
 
 #footer a {
-  color: crimson;
+  color: #2dd4bf;
+}
+
+#footer a:hover {
+  color: #5eead4;
 }
 
 #footer .top {
@@ -488,13 +508,12 @@ article .categories>li>a {
 }
 
 #footer .bottom {
-  color: #777;
   font-size: 12px;
   text-align: center;
 }
 
 #footer .bottom p {
-  border-top: solid 1px #222;
+  border-top: 1px solid #111827;
   margin-bottom: 0;
   padding-top: 20px;
 }
@@ -516,9 +535,355 @@ article .categories>li>a {
 }
 
 @media (max-width: 768px) {
-
   #footer h4 {
     margin-top: 20px;
   }
+}
 
+/*
+   HERO-SECTION (FRONT PAGE)
+   */
+
+.hero-section {
+  position: relative;
+  background: #0f1123;
+  border-radius: 16px;
+  overflow: hidden;
+  margin: 40px auto;
+  padding: 60px 40px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  min-height: 320px;
+}
+
+.hero-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(60%);
+}
+
+.hero-content {
+  position: relative;
+  max-width: 600px;
+}
+
+.hero-content h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.hero-button {
+  display: inline-block;
+  background: #22c55e;
+  padding: 12px 24px;
+  border-radius: 8px;
+  color: #022c16;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.hero-button:hover {
+  opacity: 0.9;
+}
+
+/*
+   DEsign för SENASTE INLÄGG (KORT)
+ */
+
+/* Grid-layout för korten */
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Själva kortet */
+.post-card {
+  background: #ffffff;
+  color: #111827;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  height: 380px;
+  /* samma höjd */
+}
+
+/* Länken fyller hela kortet */
+.post-card>a {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Bilden överst */
+.card-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Textdelen fyller resterande plats */
+.card-content {
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Titel i kort */
+.card-content h3 {
+  margin: 0 0 8px;
+  color: #111827;
+}
+
+/* Text i kort */
+.card-content p {
+  margin: 0;
+  color: #4b5563;
+}
+
+/* Tar bort global margin för articles i grid */
+.post-grid article {
+  margin-top: 0;
+}
+
+/*
+   MOBILANPASSNING
+    */
+
+@media (max-width: 768px) {
+  article {
+    padding: 20px;
+  }
+
+  .hero-section {
+    padding: 30px 20px;
+    min-height: 260px;
+  }
+
+  .hero-content h1 {
+    font-size: 28px;
+  }
+
+  .post-grid {
+    grid-template-columns: 1fr;
+  }
+
+  main {
+    padding: 20px 0 40px;
+  }
+}
+
+/*
+   KONTAKTFORMULÄR
+    */
+
+.contact-section {
+  max-width: 760px;
+  margin: 40px auto 60px;
+  background-color: #f9fafb;
+  /* ljus kort-bakgrund */
+  color: #111827;
+  padding: 40px 48px 48px;
+  border-radius: 16px;
+  box-shadow: 0 18px 45px rgba(15, 17, 35, 0.7);
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.contact-header h1 {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+.contact-header p {
+  font-size: 16px;
+  color: #4b5563;
+}
+
+/* Gör formuläret mer “kort-likt” */
+.contact-form-wrap .wpcf7-form {
+  display: block;
+}
+
+/* Rad-avstånd mellan fälten */
+.contact-form-wrap .wpcf7-form p {
+  margin-bottom: 18px;
+}
+
+/* Etiketter */
+.contact-form-wrap label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #111827;
+}
+
+/* Inputs & textarea (överstyr globala inputs, men bara här inne) */
+.contact-section input[type="text"],
+.contact-section input[type="email"],
+.contact-section input[type="tel"],
+.contact-section textarea {
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font: inherit;
+  color: #111827;
+}
+
+/* Fokus – tydlig grön ring (WCAG grejerna) */
+.contact-section input[type="text"]:focus,
+.contact-section input[type="email"]:focus,
+.contact-section input[type="tel"]:focus,
+.contact-section textarea:focus {
+  outline: 2px solid #22c55e;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
+}
+
+/* Textarea högre */
+.contact-section textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+/* Skicka-knappen */
+.contact-section input[type="submit"],
+.contact-section .wpcf7-submit {
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px 20px;
+  border-radius: 999px;
+  border: none;
+  background-color: #22c55e;
+  color: #022c16;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.contact-section input[type="submit"]:hover,
+.contact-section .wpcf7-submit:hover {
+  background-color: #16a34a;
+  transform: translateY(-1px);
+}
+
+.contact-section input[type="submit"]:active,
+.contact-section .wpcf7-submit:active {
+  transform: translateY(0);
+}
+
+/* CF7 meddelanden */
+.contact-section .wpcf7-response-output {
+  margin-top: 16px;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+}
+
+.contact-section .wpcf7-mail-sent-ok {
+  border-color: #22c55e;
+  background-color: #dcfce7;
+  color: #14532d;
+}
+
+.contact-section .wpcf7-validation-errors,
+.contact-section .wpcf7-mail-sent-ng {
+  border-color: #f97316;
+  background-color: #fff7ed;
+  color: #7c2d12;
+}
+
+/* Felmeddelanden per fält */
+.contact-section .wpcf7-not-valid-tip {
+  font-size: 13px;
+  color: #b91c1c;
+  margin-top: 4px;
+}
+
+/* Mobiljusteringar */
+@media (max-width: 768px) {
+  .contact-section {
+    margin: 20px 16px 40px;
+    padding: 24px 20px 28px;
+  }
+
+  .contact-header h1 {
+    font-size: 28px;
+  }
+}
+
+/*
+   SEARCH BAR stylingen
+  */
+
+.search-bar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 40px;
+  /* Flyttar den längre åt höger */
+}
+
+.search-bar form {
+  display: flex;
+  align-items: center;
+  background: #1d1f33;
+  padding: 6px 12px;
+  border-radius: 25px;
+  border: 1px solid #444;
+}
+
+.search-bar input[type="text"] {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  width: 150px;
+}
+
+.search-bar input[type="text"]::placeholder {
+  color: #cccccc;
+}
+
+.search-bar input[type="text"]:focus {
+  outline: none;
+}
+
+.search-bar button {
+  background: #2dd4bf;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 12px;
+  margin-left: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #000;
+  transition: 0.2s ease;
+}
+
+.search-bar button:hover {
+  background: #22b3a3;
 }

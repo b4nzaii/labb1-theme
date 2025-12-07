@@ -19,19 +19,16 @@
                 </h1>
             </div>
             <!-- Sökformulär -->
-            <div class="col-xs-12 col-md-6">
-                <form role="search" method="get" action="<?php echo home_url('/'); ?>">
-                    <label for="s">Sök:</label>
-                    <input type="text" name="s" id="s" placeholder="Sök...">
-                    <input type="submit" value="Sök">
-                </form>
-            </div>
-
+          <div class="search-bar">
+          <form method="get" action="<?php echo esc_url(home_url('/')); ?>">
+          <input type="text" name="s" placeholder="Sök..." value="<?php the_search_query(); ?>">
+          <button type="submit">🔍</button>
+         </form>
         </div>
+      </div>
     </div>
 </header>
 
-<!-- Navigation -->
 <nav id="nav">
     <div class="container">
         <?php
